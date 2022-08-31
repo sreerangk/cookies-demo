@@ -22,7 +22,7 @@ def login(request):
         username=request.POST.get('email')
         context = {
                 'username':username,
-                'login_status':'TRUE',
+                'login_status':True,
             }
         response = render(request, 'home.html', context)
 
@@ -30,6 +30,7 @@ def login(request):
         response.set_cookie('username', username)
         response.set_cookie('logged_in', True)
         return response
+        
 
 def home(request):
     if 'logged_in' in request.COOKIES and 'username' in request.COOKIES:

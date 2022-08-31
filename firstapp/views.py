@@ -19,7 +19,7 @@ def login(request):
             return render(request, 'login.html')
 
     if request.method == "POST":
-        username=request.POST.get('email')
+        username=request.POST.get('uname')
         context = {
                 'username':username,
                 'login_status':True,

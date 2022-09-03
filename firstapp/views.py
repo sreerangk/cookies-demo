@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.shortcuts import reverse
+from django.contrib.auth.decorators import login_required 
 
 # set cookies
 # get cookies
@@ -12,7 +13,7 @@ def login(request):
         if 'logged_in' in request.COOKIES and 'username' in request.COOKIES:
             context = {
                 'username':request.COOKIES['username'],
-                'login_status':request.COOKIES.get('logged_in'),
+                'login_status':request.COOKIES['logged_in'],
             }
             return render(request, 'home.html', context)
         else:
